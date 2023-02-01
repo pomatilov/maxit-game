@@ -6,7 +6,7 @@ const MAX_DEPTH = 8;
 
 const negamax = (game: Game, depth: number, alpha: number, beta: number, color: number): number => {
   if (depth === 0 || game.endGameState !== undefined) {
-    const depthDiff = -MAX_DEPTH * (depth - MAX_DEPTH);
+    const depthDiff = -1 * (depth - MAX_DEPTH);
     const scoreDiff = (game.firstPlayer?.score ?? 0) - (game.secondPlayer?.score ?? 0);
 
     if (depthDiff === 0) {
