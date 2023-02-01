@@ -15,6 +15,8 @@ const gameStore = useGameStore();
 const { appState } = storeToRefs(appStateStore);
 const { game } = storeToRefs(gameStore);
 
+const windowHasOpener = window.opener !== null;
+
 const onNewGameClick = () => {
   appStateStore.setAppState(AppStateEnum.MenuNewGame);
 };
@@ -90,6 +92,7 @@ const onExitClick = () => {
       </button>
 
       <button
+        v-if="windowHasOpener"
         type="button"
         class="app-menu__list_item app-menu__button secondary"
         @click="onExitClick"
