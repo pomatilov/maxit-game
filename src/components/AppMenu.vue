@@ -53,6 +53,8 @@ const onExitClick = () => {
         class="logo"
         src="/logo.svg"
         alt="MaxIt - математическая игра"
+        width="100"
+        height="100"
       />
       <h1 class="title"><span>Max</span><span>It</span></h1>
     </div>

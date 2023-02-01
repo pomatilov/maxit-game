@@ -20,7 +20,6 @@ game.gameState = GameStateEnum.FirstPlayerTurn;
 
 const onSlideChange = () => {
   // TODO: Interactive game by slide index
-  console.log(123);
 };
 </script>
 
