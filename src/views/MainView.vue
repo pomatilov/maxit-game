@@ -32,8 +32,8 @@ const { appState } = storeToRefs(appStateStore);
   justify-content: space-between;
   width: 320px;
   min-height: 600px;
-  border-radius: 4px;
-  background-color: #f0f0f0;
+  border-radius: $border-radius;
+  background-color: $c-light;
   overflow: hidden;
   padding: 20px;
 

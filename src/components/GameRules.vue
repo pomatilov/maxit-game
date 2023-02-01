@@ -169,24 +169,24 @@ const onSlideChange = (swiper: Swiper) => {
   </div>
 </template>
 
-<style>
+<style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
 
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 200, 'opsz' 48;
 
-  color: #f78b0b;
+  color: $c-yellow;
 
   font-size: 48px;
 }
 </style>
 
-<style>
+<style lang="scss">
 @import 'swiper/css/bundle';
 
 :root {
   --swiper-navigation-size: 22px;
-  --swiper-theme-color: #e10d63;
+  --swiper-theme-color: $c-red;
 }
 
 .swiper-button-next,
@@ -230,7 +230,7 @@ const onSlideChange = (swiper: Swiper) => {
         font-size: 14px;
         text-align: left;
         width: 100%;
-        color: #3f3f3f;
+        color: $c-dark;
         margin-top: 0;
       }
     }

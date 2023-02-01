@@ -83,12 +83,12 @@ const startNewGame = () => {
   }
 
   > .winner-modal__body {
-    background-color: #f0f0f0;
-    border-radius: 4px;
+    background-color: $c-light;
+    border-radius: $border-radius;
     width: 100%;
     height: 100%;
     padding: 20px;
-    box-shadow: 0 0 12px rgba(127, 127, 127, 0.5);
+    box-shadow: 0 0 12px $c-grey-75;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -100,18 +100,18 @@ const startNewGame = () => {
     }
 
     > h3 {
-      color: #535353;
+      color: $c-dark;
       font-size: 16px;
       text-align: center;
 
       > h1 {
-        color: #f1274c;
+        color: $c-red;
         font-size: 40px;
       }
     }
 
     > p {
-      color: #535353;
+      color: $c-dark;
       font-size: 16px;
       text-align: center;
     }

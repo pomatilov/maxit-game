@@ -95,8 +95,8 @@ const onCellClick = (cell: GameCell) => {
 .game-board {
   display: flex;
   flex-direction: column;
-  background-color: rgba(179, 179, 179, 0.25);
-  border-radius: 4px;
+  background-color: $c-grey-25;
+  border-radius: $border-radius;
   padding: 1px;
   overflow: hidden;
 
@@ -128,10 +128,10 @@ const onCellClick = (cell: GameCell) => {
       height: 32px;
       margin: 0 1px;
       opacity: 0.5;
-      border-radius: 4px;
+      border-radius: $border-radius;
       overflow: hidden;
-      background-color: #f1274c;
-      color: #f0f0f0;
+      background-color: $c-red;
+      color: $c-light;
 
       > span {
         height: 16px;
@@ -148,7 +148,7 @@ const onCellClick = (cell: GameCell) => {
       }
 
       &.positive {
-        background-color: #3089db;
+        background-color: $c-blue;
       }
 
       &.hidden {

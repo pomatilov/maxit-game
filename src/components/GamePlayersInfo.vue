@@ -86,24 +86,24 @@ const gameProperty = computed(() => {
     }
 
     > .game-info__player_name {
-      color: #f1274c;
+      color: $c-red;
       font-size: 16px;
     }
 
     > .game-info__player_wins {
       > * {
-        color: #b3b3b3;
+        color: $c-grey;
         font-size: 14px;
       }
     }
 
     > .game-info__player_score {
       padding: 0.5rem 0;
-      border-radius: 4px;
+      border-radius: $border-radius;
       width: 100%;
       text-align: center;
-      color: #ffffff;
-      background-color: #f78b0b;
+      color: $c-light;
+      background-color: $c-yellow;
 
       > * {
         font-size: 24px;

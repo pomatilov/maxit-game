@@ -155,11 +155,11 @@ const onExitClick = () => {
     > .title {
       > span {
         &:first-child {
-          color: #f1274c;
+          color: $c-red;
         }
 
         &:last-child {
-          color: #3089db;
+          color: $c-blue;
         }
       }
     }
@@ -197,7 +197,7 @@ const onExitClick = () => {
 
   .app-menu__new-game_mode-description {
     font-size: 14px;
-    color: #b3b3b3;
+    color: $c-grey;
     margin-top: 0.5rem;
   }
 }

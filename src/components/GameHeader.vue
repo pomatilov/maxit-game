@@ -44,11 +44,11 @@ import { backToMenu } from '@/compositions/BackToMenu';
 
       > span {
         &:first-child {
-          color: #f1274c;
+          color: $c-red;
         }
 
         &:last-child {
-          color: #3089db;
+          color: $c-blue;
         }
       }
     }

@@ -17,6 +17,13 @@ export default defineConfig({
     },
   },
   optimizeDeps: { exclude: ['swiper/vue', 'swiper/types'] },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/global.scss";`,
+      },
+    },
+  },
   plugins: [
     vue(),
     eslintPlugin(),
