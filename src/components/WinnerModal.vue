@@ -70,7 +70,7 @@ const startNewGame = () => {
   width: 100%;
   height: inherit;
   min-height: inherit;
-  padding: 20px;
+  padding: 12px;
   z-index: 999;
   transition: all 0.5s;
   opacity: 0;

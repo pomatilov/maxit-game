@@ -186,7 +186,7 @@ const onSlideChange = (swiper: Swiper) => {
 
 :root {
   --swiper-navigation-size: 22px;
-  --swiper-theme-color: $c-red;
+  --swiper-theme-color: #e10d63;
 }
 
 .swiper-button-next,
