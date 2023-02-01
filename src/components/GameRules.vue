@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { ref, Ref } from 'vue';
 import { Navigation, Pagination } from 'swiper';
-import { Swiper, SwiperSlide } from 'swiper/vue';
-import { SwiperModule } from 'swiper/types';
+import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/vue';
+import { Swiper, SwiperModule } from 'swiper/types';
 
 import { Game } from '@/models/game/Game';
 import { GameModeEnum } from '@/models/enums/GameModeEnum';
@@ -9,23 +10,88 @@ import { GameStateEnum } from '@/models/enums/GameStateEnum';
 
 import GameBoard from './GameBoard.vue';
 import GamePlayersInfo from './GamePlayersInfo.vue';
+import { GameCell } from '@/models/game/GameCell';
 
 const game = new Game();
+const gameRef: Ref<Game> = ref(game);
 
 const swiperModules: SwiperModule[] = [Navigation, Pagination];
 
-game.setGameMode(GameModeEnum.TwoPlayers);
-game.startNewGame();
-game.gameState = GameStateEnum.FirstPlayerTurn;
+const viewedSlides: number[] = [];
 
-const onSlideChange = () => {
-  // TODO: Interactive game by slide index
+const onSlideChange = (swiper: Swiper) => {
+  const { activeIndex, previousIndex } = swiper;
+
+  if (activeIndex === 1) {
+    gameRef.value.setGameMode(GameModeEnum.TwoPlayers);
+    gameRef.value.startNewGame();
+    gameRef.value.gameState = GameStateEnum.FirstPlayerTurn;
+
+    viewedSlides.splice(0);
+    viewedSlides.push(activeIndex);
+
+    return;
+  }
+
+  if (viewedSlides.includes(activeIndex) || previousIndex > activeIndex) {
+    return;
+  }
+
+  viewedSlides.push(activeIndex);
+
+  if (activeIndex === 3) {
+    const availableMoves = gameRef.value.getAllPossibleMoves();
+
+    setTimeout(() => {
+      gameRef.value.makeMove(availableMoves[Math.floor(Math.random() * availableMoves.length)]);
+    }, 1000);
+
+    return;
+  }
+
+  if (activeIndex === 4) {
+    let availableMoves = gameRef.value.getAllPossibleMoves();
+
+    let isAvailableMovesNegative = true;
+
+    if (availableMoves.length > 0) {
+      isAvailableMovesNegative = availableMoves.reduce(
+        (result: boolean, cell: GameCell) => result && cell.positive === false,
+        true,
+      );
+    }
+
+    while (isAvailableMovesNegative === false) {
+      gameRef.value.makeMove(availableMoves[Math.floor(Math.random() * availableMoves.length)]);
+
+      availableMoves = gameRef.value.getAllPossibleMoves();
+
+      isAvailableMovesNegative = availableMoves.reduce(
+        (result: boolean, cell: GameCell) => result && cell.positive === false,
+        true,
+      );
+    }
+
+    return;
+  }
+
+  if (activeIndex === 5) {
+    if (gameRef.value.lastSelectedCell) {
+      const lastCell = gameRef.value.lastSelectedCell;
+
+      gameRef.value.undoMove(lastCell);
+
+      setTimeout(() => {
+        gameRef.value.makeMove(lastCell);
+      }, 1000);
+    }
+  }
 };
 </script>
 
 <template>
   <div class="game-rules">
-    <Swiper
+    <SwiperComponent
       class="game-rules__slider"
       :modules="swiperModules"
       :slides-per-view="1"
@@ -57,7 +123,7 @@ const onSlideChange = () => {
           </p>
         </div>
 
-        <GameBoard :game="game" />
+        <GameBoard :game="gameRef" />
       </SwiperSlide>
 
       <SwiperSlide class="game-rules__slider_slide">
@@ -66,7 +132,7 @@ const onSlideChange = () => {
           <p>Статус хода можно понять по выделению в таблице очков.</p>
         </div>
 
-        <GamePlayersInfo :game="game" />
+        <GamePlayersInfo :game="gameRef" />
       </SwiperSlide>
 
       <SwiperSlide class="game-rules__slider_slide">
@@ -75,7 +141,7 @@ const onSlideChange = () => {
           <p>Ход следующего игрока будет уже по вертикали.</p>
         </div>
 
-        <GameBoard :game="game" />
+        <GameBoard :game="gameRef" />
       </SwiperSlide>
 
       <SwiperSlide class="game-rules__slider_slide">
@@ -86,7 +152,7 @@ const onSlideChange = () => {
           </p>
         </div>
 
-        <GamePlayersInfo :game="game" />
+        <GamePlayersInfo :game="gameRef" />
       </SwiperSlide>
 
       <SwiperSlide class="game-rules__slider_slide">
@@ -97,9 +163,9 @@ const onSlideChange = () => {
           </p>
         </div>
 
-        <GameBoard :game="game" />
+        <GameBoard :game="gameRef" />
       </SwiperSlide>
-    </Swiper>
+    </SwiperComponent>
   </div>
 </template>
 
@@ -127,7 +193,7 @@ const onSlideChange = () => {
 <style scoped>
 .game-rules__slider {
   width: 100%;
-  min-height: 400px;
+  min-height: 414px;
   /* margin-top: 16px; */
 }
 
@@ -136,7 +202,7 @@ const onSlideChange = () => {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-height: 400px;
+  min-height: 414px;
 }
 
 .game-rules__slider_slide > *:last-child {
