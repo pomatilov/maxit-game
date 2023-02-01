@@ -142,60 +142,63 @@ const onExitClick = () => {
   </div>
 </template>
 
-<style scoped>
-.app-menu > .app-menu_head {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 300px;
-}
+<style scoped lang="scss">
+.app-menu {
+  > .app-menu_head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 300px;
 
-.app-menu > .app-menu_head > .title > span:first-child {
-  color: #f1274c;
-}
+    > .title {
+      > span {
+        &:first-child {
+          color: #f1274c;
+        }
 
-.app-menu > .app-menu_head > .title > span:last-child {
-  color: #3089db;
-}
+        &:last-child {
+          color: #3089db;
+        }
+      }
+    }
 
-.app-menu > .app-menu_head > .subtitle {
-  font-size: 14px;
-  margin-top: 0.75rem;
-  text-align: center;
-}
+    > .subtitle {
+      font-size: 14px;
+      margin-top: 0.75rem;
+      text-align: center;
+    }
+  }
 
-.app-menu > .app-menu__list {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  > .app-menu__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 250px;
+    width: 100%;
 
-  height: 250px;
-  width: 100%;
-}
+    > .app-menu__list_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 1.25rem;
 
-.app-menu > .app-menu__list > .app-menu__list_item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
 
-  width: 100%;
-  margin-bottom: 1.25rem;
-}
+  .app-menu__button {
+    width: 100%;
+  }
 
-.app-menu > .app-menu__list > .app-menu__list_item:last-child {
-  margin-bottom: 0;
-}
-
-.app-menu .app-menu__button {
-  width: 100%;
-}
-
-.app-menu__new-game_mode-description {
-  font-size: 14px;
-  color: #b3b3b3;
-
-  margin-top: 0.5rem;
+  .app-menu__new-game_mode-description {
+    font-size: 14px;
+    color: #b3b3b3;
+    margin-top: 0.5rem;
+  }
 }
 </style>

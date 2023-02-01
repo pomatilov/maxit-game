@@ -24,31 +24,25 @@ const { appState } = storeToRefs(appStateStore);
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .container {
   position: relative;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   width: 320px;
   min-height: 600px;
-
   border-radius: 4px;
   background-color: #f0f0f0;
-
   overflow: hidden;
-
   padding: 20px;
-}
 
-.container > * {
-  position: relative;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 560px;
+  > * {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 560px;
+  }
 }
 </style>

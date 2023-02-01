@@ -30,18 +30,18 @@ import GameBoard from './GameBoard.vue';
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .app-game__controls {
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
-}
 
-.app-game__controls_button {
-  margin-bottom: 2rem;
-}
+  > .app-game__controls_button {
+    margin-bottom: 2rem;
 
-.app-game__controls_button:last-child {
-  margin-bottom: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 </style>

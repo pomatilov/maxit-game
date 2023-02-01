@@ -103,8 +103,8 @@ const onSlideChange = (swiper: Swiper) => {
       <SwiperSlide class="game-rules__slider_slide game-description">
         <div class="rule">
           <p>
-            <span class="red">Max</span><span class="blue">It</span> - Увлекательная логическая игра на двоих, где
-            оппонентом может выступать как компьютер, <br />так и другой человек.
+            <span class="color-red">Max</span><span class="color-blue">It</span> - Увлекательная логическая игра на
+            двоих, где оппонентом может выступать как компьютер, <br />так и другой человек.
           </p>
 
           <p>Игровое поле представляет собой квадрат, разбитый<br />на 64 клетки.</p>
@@ -170,6 +170,18 @@ const onSlideChange = (swiper: Swiper) => {
 </template>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 200, 'opsz' 48;
+
+  color: #f78b0b;
+
+  font-size: 48px;
+}
+</style>
+
+<style>
 @import 'swiper/css/bundle';
 
 :root {
@@ -190,43 +202,38 @@ const onSlideChange = (swiper: Swiper) => {
 }
 </style>
 
-<style scoped>
+<style scoped lang="scss">
 .game-rules__slider {
   width: 100%;
   min-height: 414px;
-  /* margin-top: 16px; */
-}
 
-.game-rules__slider_slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 414px;
-}
+  .game-rules__slider_slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 414px;
 
-.game-rules__slider_slide > *:last-child {
-  margin-bottom: 44px;
-}
+    > * {
+      &:last-child {
+        margin-bottom: 44px;
+      }
+    }
 
-.game-rules__slider_slide * {
-  pointer-events: none;
-  user-select: none;
-}
+    * {
+      pointer-events: none;
+      user-select: none;
+    }
 
-.red {
-  color: #f1274c;
-}
-
-.blue {
-  color: #3089db;
-}
-
-p {
-  font-size: 14px;
-  text-align: left;
-  width: 100%;
-  color: #3f3f3f;
-  margin-top: 0;
+    > .rule {
+      > p {
+        font-size: 14px;
+        text-align: left;
+        width: 100%;
+        color: #3f3f3f;
+        margin-top: 0;
+      }
+    }
+  }
 }
 </style>

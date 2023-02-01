@@ -61,82 +61,73 @@ const startNewGame = () => {
   </div>
 </template>
 
-<style>
+<style scoped lang="scss">
 .winner-modal {
   position: absolute;
-
   top: 200%;
   left: 0;
   right: 0;
-
   width: 100%;
   height: inherit;
   min-height: inherit;
-
   padding: 20px;
-
   z-index: 999;
-
   transition: all 0.5s;
-
   opacity: 0;
   visibility: hidden;
-}
 
-.winner-modal.visible {
-  top: 0;
+  &.visible {
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+  }
 
-  opacity: 1;
-  visibility: visible;
-}
+  > .winner-modal__body {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-shadow: 0 0 12px rgba(127, 127, 127, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-.winner-modal__body {
-  background-color: #f0f0f0;
+    > .winner-modal__body_stars {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
 
-  border-radius: 4px;
+    > h3 {
+      color: #535353;
+      font-size: 16px;
+      text-align: center;
 
-  width: 100%;
-  height: 100%;
+      > h1 {
+        color: #f1274c;
+        font-size: 40px;
+      }
+    }
 
-  padding: 20px;
+    > p {
+      color: #535353;
+      font-size: 16px;
+      text-align: center;
+    }
 
-  box-shadow: 0 0 12px rgba(127, 127, 127, 0.5);
+    .winner-modal__controls {
+      display: flex;
+      flex-direction: column;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
+      > * {
+        margin-bottom: 1.25rem;
 
-.winner-modal__body_stars {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /* margin-bottom: 72px; */
-}
-
-.winner-modal__body > h3,
-.winner-modal__body > p {
-  color: #535353;
-  font-size: 16px;
-  /* margin-top: 24px; */
-  text-align: center;
-}
-
-.winner-modal__body > h3 > h1 {
-  color: #f1274c;
-  font-size: 40px;
-}
-
-.winner-modal__controls {
-  display: flex;
-  flex-direction: column;
-}
-
-.winner-modal__controls > * {
-  margin-bottom: 1.25rem;
-}
-
-.winner-modal__controls > *:last-child {
-  margin-bottom: 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 }
 </style>

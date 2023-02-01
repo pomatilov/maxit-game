@@ -23,6 +23,7 @@ body {
   min-height: 100vh;
 
   background: linear-gradient(135deg, #3089db 0%, #e10d63 50%, #f78b0b 100%);
+  background-repeat: no-repeat;
 }
 
 button {
@@ -89,4 +90,12 @@ h6 {
   font-weight: 400;
   margin: 0.5rem;
   line-height: 1.1;
+}
+
+.color-red {
+  color: #f1274c;
+}
+
+.color-blue {
+  color: #3089db;
 }

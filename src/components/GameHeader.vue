@@ -20,36 +20,38 @@ import { backToMenu } from '@/compositions/BackToMenu';
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .game-header {
   height: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-}
 
-.game-header > .game-header__link {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  text-decoration: none;
-}
+  > .game-header__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-decoration: none;
 
-.game-header > .game-header__link > .logo {
-  height: 60px;
-  padding: 12px 0;
-}
+    > .logo {
+      height: 60px;
+      padding: 12px 0;
+    }
 
-.game-header > .game-header__link > .title {
-  margin-left: 0.75rem;
-}
+    > .title {
+      margin-left: 0.75rem;
 
-.game-header > .game-header__link > .title > span:first-child {
-  color: #f1274c;
-}
+      > span {
+        &:first-child {
+          color: #f1274c;
+        }
 
-.game-header > .game-header__link > .title > span:last-child {
-  color: #3089db;
+        &:last-child {
+          color: #3089db;
+        }
+      }
+    }
+  }
 }
 </style>

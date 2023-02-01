@@ -91,84 +91,79 @@ const onCellClick = (cell: GameCell) => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .game-board {
   display: flex;
   flex-direction: column;
-
   background-color: rgba(179, 179, 179, 0.25);
-  /* border: 1px solid #1a1a1a; */
   border-radius: 4px;
   padding: 1px;
-
-  overflow: hidden;
-}
-
-.game-board__row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  height: 32px;
-  width: 100%;
-  margin: 1px 0;
-}
-
-.game-board__row:first-child {
-  margin-top: 0;
-}
-
-.game-board__row:last-child {
-  margin-bottom: 0;
-}
-
-.game-board__row_cell {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 16px;
-
-  width: 32px;
-  height: 32px;
-  margin: 0 1px;
-
-  opacity: 0.5;
-  border-radius: 4px;
-
   overflow: hidden;
 
-  background-color: #f1274c;
-  color: #f0f0f0;
-}
+  .game-board__row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 32px;
+    width: 100%;
+    margin: 1px 0;
+  }
 
-.game-board__row_cell span {
-  height: 16px;
-  line-height: 1;
-  margin-top: 2px;
-}
+  > .game-board__row {
+    &:first-child {
+      margin-top: 0;
+    }
 
-.game-board__row_cell:first-child {
-  margin-left: 0;
-}
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-.game-board__row_cell:last-child {
-  margin-right: 0;
-}
+    > .game-board__row_cell {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      width: 32px;
+      height: 32px;
+      margin: 0 1px;
+      opacity: 0.5;
+      border-radius: 4px;
+      overflow: hidden;
+      background-color: #f1274c;
+      color: #f0f0f0;
 
-.game-board__row_cell.positive {
-  background-color: #3089db;
-}
+      > span {
+        height: 16px;
+        line-height: 1;
+        margin-top: 2px;
+      }
 
-.game-board__row_cell.hidden {
-  opacity: 0;
-  visibility: hidden;
-}
+      &:first-child {
+        margin-left: 0;
+      }
 
-.game-board__row_cell.active {
-  opacity: 1;
-}
-.game-board__row_cell.active.clickable {
-  cursor: pointer;
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.positive {
+        background-color: #3089db;
+      }
+
+      &.hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &.active {
+        opacity: 1;
+
+        &.clickable {
+          cursor: pointer;
+        }
+      }
+    }
+  }
 }
 </style>

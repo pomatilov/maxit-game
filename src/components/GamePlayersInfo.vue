@@ -66,50 +66,50 @@ const gameProperty = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .game-info {
-  /* margin-bottom: 0.75rem; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-}
 
-.game-info__player {
-  padding: 0.5rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 100px;
-  opacity: 0.5;
-}
+  > .game-info__player {
+    padding: 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 100px;
+    opacity: 0.5;
 
-.game-info__player.current {
-  opacity: 1;
-}
+    &.current {
+      opacity: 1;
+    }
 
-.game-info__player_name {
-  color: #f1274c;
-  font-size: 16px;
-}
+    > .game-info__player_name {
+      color: #f1274c;
+      font-size: 16px;
+    }
 
-.game-info__player_wins > * {
-  color: #b3b3b3;
-  font-size: 14px;
-}
+    > .game-info__player_wins {
+      > * {
+        color: #b3b3b3;
+        font-size: 14px;
+      }
+    }
 
-.game-info__player_score {
-  padding: 0.5rem 0;
-  border-radius: 4px;
+    > .game-info__player_score {
+      padding: 0.5rem 0;
+      border-radius: 4px;
+      width: 100%;
+      text-align: center;
+      color: #ffffff;
+      background-color: #f78b0b;
 
-  width: 100%;
-  text-align: center;
-
-  color: #ffffff;
-  background-color: #f78b0b;
-}
-.game-info__player_score > * {
-  font-size: 24px;
-  margin: 0;
+      > * {
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+  }
 }
 </style>
