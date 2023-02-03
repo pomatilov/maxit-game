@@ -3,14 +3,10 @@ import { defineConfig } from 'vite';
 
 import eslintPlugin from 'vite-plugin-eslint';
 import { VitePWA } from 'vite-plugin-pwa';
-import mkcert from 'vite-plugin-mkcert';
 
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-  // server: {
-  //   https: true,
-  // },
   resolve: {
     alias: {
       '@': resolve(__dirname, './src'),
@@ -27,10 +23,8 @@ export default defineConfig({
   plugins: [
     vue(),
     eslintPlugin(),
-    // mkcert(),
     VitePWA({
       registerType: 'autoUpdate',
-      // strategies: 'injectManifest',
       injectRegister: 'auto',
       manifest: {
         name: 'MaxIt',

@@ -203,12 +203,10 @@ export class Game {
       switch (this.endGameState) {
         case EndGameStateEnum.FirstPlayerWin:
           this.firstPlayer.wins += 1;
-          // this.endGameState = undefined;
           break;
 
         case EndGameStateEnum.SecondPlayerWin:
           this.secondPlayer.wins += 1;
-          // this.endGameState = undefined;
           break;
 
         default:
