@@ -20,7 +20,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "@/assets/global.scss";`,
+        additionalData: `@import "@/global.scss";`,
       },
     },
   },
@@ -39,6 +39,7 @@ export default defineConfig({
         theme_color: '#e10d63',
         background_color: '#ffffff',
         display: 'standalone',
+        orientation: 'portrait',
         start_url: '/',
         icons: [
           { src: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any maskable' },

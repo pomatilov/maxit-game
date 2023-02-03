@@ -53,7 +53,7 @@ const onExitClick = () => {
     <div class="app-menu_head">
       <img
         class="logo"
-        src="/logo.svg"
+        src="../assets/logo.svg"
         alt="MaxIt - математическая игра"
         width="100"
         height="100"
@@ -153,6 +153,8 @@ const onExitClick = () => {
     min-height: 300px;
 
     > .title {
+      margin: 0.6rem 0;
+
       > span {
         &:first-child {
           color: $c-red;
@@ -166,7 +168,7 @@ const onExitClick = () => {
 
     > .subtitle {
       font-size: 14px;
-      margin-top: 0.75rem;
+      margin-top: 0.6rem;
       text-align: center;
     }
   }
@@ -183,7 +185,7 @@ const onExitClick = () => {
       flex-direction: column;
       align-items: center;
       width: 100%;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.2rem;
 
       &:last-child {
         margin-bottom: 0;
@@ -198,7 +200,7 @@ const onExitClick = () => {
   .app-menu__new-game_mode-description {
     font-size: 14px;
     color: $c-grey;
-    margin-top: 0.5rem;
+    margin-top: 0.6rem;
   }
 }
 </style>

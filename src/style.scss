@@ -49,7 +49,7 @@ button {
 button:hover,
 button:focus {
   border-color: transparent;
-  box-shadow: 0 0 0.5rem $c-yellow;
+  box-shadow: 0 0 0.6rem $c-yellow;
 }
 
 button.primary {
@@ -58,7 +58,7 @@ button.primary {
 
 button.primary:hover,
 button.primary:focus {
-  box-shadow: 0 0 0.5rem $c-red;
+  box-shadow: 0 0 0.6rem $c-red;
 }
 
 button.secondary {
@@ -88,8 +88,8 @@ h4,
 h5,
 h6 {
   font-weight: 400;
-  margin: 0.5rem;
-  line-height: 1.1;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .color-red {

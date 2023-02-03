@@ -11,7 +11,7 @@ import { backToMenu } from '@/compositions/BackToMenu';
     >
       <img
         class="logo"
-        src="/logo.svg"
+        src="../assets/logo.svg"
         alt="MaxIt Logo"
       />
 
@@ -40,7 +40,7 @@ import { backToMenu } from '@/compositions/BackToMenu';
     }
 
     > .title {
-      margin-left: 0.75rem;
+      margin-left: 0.6rem;
 
       > span {
         &:first-child {

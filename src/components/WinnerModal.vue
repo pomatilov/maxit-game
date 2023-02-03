@@ -4,6 +4,7 @@ import { storeToRefs } from 'pinia';
 
 import { backToMenu } from '@/compositions/BackToMenu';
 import { useGameStore } from '@/stores/GameStore';
+import GamePlayersInfo from './GamePlayersInfo.vue';
 
 const gameStore = useGameStore();
 
@@ -27,23 +28,42 @@ const startNewGame = () => {
   >
     <div class="winner-modal__body">
       <div class="winner-modal__body_stars">
-        <span class="material-symbols-outlined"> star </span>
-        <span class="material-symbols-outlined"> star </span>
-        <span class="material-symbols-outlined"> star </span>
+        <img
+          src="../assets/star.svg"
+          alt="star"
+          width="36"
+          height="36"
+        />
+
+        <img
+          src="../assets/star.svg"
+          alt="star"
+          width="36"
+          height="36"
+        />
+
+        <img
+          src="../assets/star.svg"
+          alt="star"
+          width="36"
+          height="36"
+        />
       </div>
 
-      <h3 style="text-align: center">
+      <h3 class="winner-modal__body_winner">
         Победу одержал<br />
-        <h1>{{ game.winner?.name }}</h1>
+        <h1 class="winner-modal__body_winner-name">{{ game.winner?.name }}</h1>
       </h3>
 
-      <p>Соотношение очков в прошедшей игре:<br />{{ game.firstPlayer?.score }} к {{ game.secondPlayer?.score }}</p>
-      <p>Соотношение побед:<br />{{ game.firstPlayer?.wins }} к {{ game.secondPlayer?.wins }}</p>
+      <GamePlayersInfo
+        class="winner-modal__body_stats"
+        :game="game"
+      />
 
-      <div class="winner-modal__controls">
+      <div class="winner-modal__body_controls">
         <button
           type="button"
-          class="winner-modal__controls_button primary"
+          class="primary"
           @click="startNewGame"
         >
           Новая игра
@@ -51,7 +71,7 @@ const startNewGame = () => {
 
         <button
           type="button"
-          class="winner-modal__controls_button secondary"
+          class="secondary"
           @click="backToMenu"
         >
           В меню
@@ -72,6 +92,7 @@ const startNewGame = () => {
   min-height: inherit;
   padding: 12px;
   z-index: 999;
+
   transition: all 0.5s;
   opacity: 0;
   visibility: hidden;
@@ -97,31 +118,36 @@ const startNewGame = () => {
       display: flex;
       flex-direction: row;
       justify-content: center;
-    }
 
-    > h3 {
-      color: $c-dark;
-      font-size: 16px;
-      text-align: center;
+      padding: 0.6rem 0;
 
-      > h1 {
-        color: $c-red;
-        font-size: 40px;
+      > * {
+        margin-right: 12px;
+
+        &:last-child {
+          margin-right: 0;
+        }
       }
     }
 
-    > p {
+    > .winner-modal__body_winner {
       color: $c-dark;
       font-size: 16px;
       text-align: center;
+
+      > .winner-modal__body_winner-name {
+        color: $c-red;
+        font-size: 40px;
+        margin-top: 0.6rem;
+      }
     }
 
-    .winner-modal__controls {
+    > .winner-modal__body_controls {
       display: flex;
       flex-direction: column;
 
       > * {
-        margin-bottom: 1.25rem;
+        margin-bottom: 1.2rem;
 
         &:last-child {
           margin-bottom: 0;
@@ -129,5 +155,11 @@ const startNewGame = () => {
       }
     }
   }
+}
+</style>
+
+<style>
+.winner-modal__body_stats .game-info__player {
+  opacity: 1 !important;
 }
 </style>

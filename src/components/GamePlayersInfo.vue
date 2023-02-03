@@ -74,7 +74,7 @@ const gameProperty = computed(() => {
   width: 100%;
 
   > .game-info__player {
-    padding: 0.5rem 0;
+    padding: 0.6rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,7 +98,8 @@ const gameProperty = computed(() => {
     }
 
     > .game-info__player_score {
-      padding: 0.5rem 0;
+      padding: 0.3rem 0;
+      margin: 0.6rem 0;
       border-radius: $border-radius;
       width: 100%;
       text-align: center;

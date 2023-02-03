@@ -170,18 +170,6 @@ const onSlideChange = (swiper: Swiper) => {
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
-
-.material-symbols-outlined {
-  font-variation-settings: 'FILL' 1, 'wght' 200, 'GRAD' 200, 'opsz' 48;
-
-  color: $c-yellow;
-
-  font-size: 48px;
-}
-</style>
-
-<style lang="scss">
 @import 'swiper/css/bundle';
 
 :root {
