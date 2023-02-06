@@ -2,7 +2,7 @@ import { Game } from '@/models/game/Game';
 import { GameCell } from '@/models/game/GameCell';
 import { GameStateEnum } from '@/models/enums/GameStateEnum';
 
-const MAX_DEPTH = 8;
+const MAX_DEPTH = 3;
 
 const negamax = (game: Game, depth: number, alpha: number, beta: number, color: number): number => {
   if (depth === 0 || game.endGameState !== undefined) {
