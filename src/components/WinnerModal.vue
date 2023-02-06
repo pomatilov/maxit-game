@@ -26,7 +26,10 @@ const startNewGame = () => {
     class="winner-modal"
     :class="{ visible: game.isGameOver }"
   >
-    <div class="winner-modal__body">
+    <div
+      v-if="game.isGameOver"
+      class="winner-modal__body"
+    >
       <div class="winner-modal__body_stars">
         <img
           src="../assets/star.svg"
@@ -50,9 +53,20 @@ const startNewGame = () => {
         />
       </div>
 
-      <h3 class="winner-modal__body_winner">
+      <h3
+        v-if="game.winner"
+        class="winner-modal__body_winner"
+      >
         Победу одержал<br />
         <h1 class="winner-modal__body_winner-name">{{ game.winner?.name }}</h1>
+      </h3>
+
+      <h3
+        v-else
+        class="winner-modal__body_winner"
+      >
+        <br />
+        <h1 class="winner-modal__body_winner-name">Ничья</h1>
       </h3>
 
       <GamePlayersInfo
